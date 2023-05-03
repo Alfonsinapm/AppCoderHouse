@@ -24,6 +24,6 @@ const AgregarProductos = ({ onAdd, onHandleChangeText, value, onClean }) => {
 				</View>
 		</View>
 	)
-}
+};
 
 export default AgregarProductos

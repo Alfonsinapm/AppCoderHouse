@@ -1,9 +1,8 @@
 import { TouchableOpacity, Text, View, FlatList } from 'react-native';
 import React from 'react'
 import styles from './styles';
-import { AgregarProductos } from '../../components';
 import { useState } from 'react';
-
+import AgregarProductos from '../../components/AgregarProductos/index';
 const Home = () => {
 
 	const [textItem, setTextItem] = useState('');
