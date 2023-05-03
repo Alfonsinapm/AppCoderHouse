@@ -14,6 +14,7 @@ const Home = () => {
 	};
 
 	const agregar = () => {
+		
 		if (textItem.length) {
 			setList(prevstate => [...prevstate, {
 				name: textItem,

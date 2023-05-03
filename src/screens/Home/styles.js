@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
 		padding:5,
 		alignItems:'center',
 		paddingTop:20,
-		justifyContent:'center',
 	},
 	subtitle:{
 		fontWeight:'bold',
