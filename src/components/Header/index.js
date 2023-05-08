@@ -2,12 +2,12 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import styles from './styles';
 
-const Header = ({title}) => {
+const Header = ({title, newStyles}) => {
 
 	
   return (
 	<View style={styles.header}>
-	  <Text style={styles.title}>{title}</Text>
+	  <Text style={{...styles.title, ...newStyles}}>{title}</Text>
 	</View>
   )
 };
