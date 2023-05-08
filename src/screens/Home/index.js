@@ -3,7 +3,8 @@ import React from 'react'
 import styles from './styles';
 import { useState } from 'react';
 import AgregarProductos from '../../components/AgregarProductos/index';
-const Home = () => {
+
+const Home = ({onRender, triggerSwitch}) => {
 
 	const [textItem, setTextItem] = useState('');
 	const [list, setList] = useState([]);
@@ -15,11 +16,13 @@ const Home = () => {
 	const agregar = () => {
 		
 		if (textItem.length) {
-			setList(prevstate => [...prevstate, {
+			let item = {
 				name: textItem,
 				id: Math.random().toString()
-			}])
+			}
+			setList(prevstate => [...prevstate, item])
 			setTextItem('');
+			onRender(item);
 		}
 	};
 
@@ -40,6 +43,9 @@ const Home = () => {
 				<View style={styles.buttonContainer}>
 					<TouchableOpacity style={styles.botonBorrar}>
 						<Text onPress={() => borrar(item)} color={'white'}>{'Borrar'}</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={styles.botonBorrar}>
+						<Text onPress={() => triggerSwitch()} color={'white'}>{'Ver detalle'}</Text>
 					</TouchableOpacity>
 				</View>
 			</View>

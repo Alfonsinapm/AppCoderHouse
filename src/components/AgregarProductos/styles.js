@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import colores from "../../constantes/colores";
 
 const styles = StyleSheet.create({
 	container:{
@@ -6,7 +7,7 @@ const styles = StyleSheet.create({
 		alignItems:'center',
 		padding:5,
 		paddingTop:30,
-		backgroundColor: '#F6F1F1',
+		backgroundColor: colores.primary,
 		borderRadius:10,
 		
 	},
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
 	},
 	subtitle:{
 		fontWeight:'bold',
-		color: "#8294C4",
+		color: colores.contrastFont,
 	},
 	buttonContainer:{
 		flexDirection:'row',
@@ -27,9 +28,9 @@ const styles = StyleSheet.create({
 	},
 	botonAgregar:{
 		width:100,
-		backgroundColor:'#DBDFEA',
+		backgroundColor:colores.actionColor,
 		borderRadius:10,
-		color:'white',
+		color:colores.lightFont,
 		height:35,
 		justifyContent:'center',
 		alignItems:'center'
