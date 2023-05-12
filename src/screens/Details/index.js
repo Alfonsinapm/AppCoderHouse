@@ -1,18 +1,15 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Button } from 'react-native'
 import React from 'react'
 import styles from './styles'
 
-const ProductDetails = ({ item, goBack }) => {
+const ProductDetails = ({ navigation }) => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>Detalle deproducto</Text>
-			<Text style={styles.nombreProducto}>{item.name}</Text>
-
-			<View style={styles.buttonContainer}>
-				<TouchableOpacity style={styles.botonVolver}>
-					<Text onPress={() => goBack()} style={styles.txtVolver}>{'Volver'}</Text>
-				</TouchableOpacity>
-			</View>
+			<TouchableOpacity style={styles.botonVolver}>
+				<Button onPress={() => navigation.navigate('Home')} color={'black'} title= {'Volver'}></Button>
+			</TouchableOpacity>
+			
 		</View>
 	)
 }

@@ -1,4 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
 	container:{
@@ -27,32 +29,50 @@ const styles = StyleSheet.create({
 		
 	},
 	botonBorrar:{
-		width:100,
+		width:'40%',
+		minWidth:85,
+		maxWidth: width/2,
+		height:'90%',
 		backgroundColor:'#FFEAD2',
 		borderRadius:10,
 		color:'white',
-		height:35,
 		justifyContent:'center',
-		alignItems:'center'
+		alignItems:'center',
+		padding:'4%',
+		fontSize:15
+	},
+	textoBorrar:{
+		fontSize:18,
+	},
+	botonDetalle:{
+		width:'40%',
+		minWidth:85,
+		maxWidth: width/2,
+		height:'90%',
+		backgroundColor:'#FFEAD2',
+		borderRadius:10,
+		justifyContent:'center',
+		alignItems:'center',
 	},
 	botonAgregar:{
-		width:100,
+		width:'40%',
+		minWidth:100,
+		maxWidth: width/2,
+		height:'80%',
 		backgroundColor:'#DBDFEA',
 		borderRadius:10,
 		color:'white',
-		height:35,
 		justifyContent:'center',
 		alignItems:'center'
 	},
 	containerCard:{
-		width:300,
-		maxWidth:'80%',
+		width:'90%',
 		padding:20,
 		alignItems:'center',
 		borderRadius:10,
 		backgroundColor:'#DBDFEA',
-		marginTop:30
-		
+		marginTop:30,
+		marginLeft:15
 	},
 	Msg:{
 		fontWeight:'bold',
