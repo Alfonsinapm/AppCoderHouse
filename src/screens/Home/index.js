@@ -1,10 +1,10 @@
-import { TouchableOpacity, Text, View, FlatList } from 'react-native';
-import React from 'react'
+import { TouchableOpacity, Text, View, FlatList, Dimensions, Button } from 'react-native';
+import React, { useEffect } from 'react'
 import styles from './styles';
-import { useState } from 'react';
+import { useState, } from 'react';
 import AgregarProductos from '../../components/AgregarProductos/index';
 
-const Home = ({onRender, triggerSwitch}) => {
+const Home = ({navigation}) => {
 
 	const [textItem, setTextItem] = useState('');
 	const [list, setList] = useState([]);
@@ -13,8 +13,17 @@ const Home = ({onRender, triggerSwitch}) => {
 		setTextItem(text);
 	};
 
+	// const width = Dimensions.get('width');
+	// const height = Dimensions.get('height');
+
+	// const medidas = {
+	// 	s:200,
+	// 	m:600,
+	// 	l:1000
+	// };
+
 	const agregar = () => {
-		
+	
 		if (textItem.length) {
 			let item = {
 				name: textItem,
@@ -22,7 +31,6 @@ const Home = ({onRender, triggerSwitch}) => {
 			}
 			setList(prevstate => [...prevstate, item])
 			setTextItem('');
-			onRender(item);
 		}
 	};
 
@@ -42,10 +50,10 @@ const Home = ({onRender, triggerSwitch}) => {
 				<Text style={styles.subtitle}>{item.name}</Text>
 				<View style={styles.buttonContainer}>
 					<TouchableOpacity style={styles.botonBorrar}>
-						<Text onPress={() => borrar(item)} color={'white'}>{'Borrar'}</Text>
+						<Text onPress={() => borrar(item)} color={'white'} style={styles.textoBorrar}>{'Borrar'}</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={styles.botonBorrar}>
-						<Text onPress={() => triggerSwitch()} color={'white'}>{'Ver detalle'}</Text>
+					<TouchableOpacity style={styles.botonDetalle}>
+						<Button onPress={() => navigation.navigate('Details')} color={'black'} title={'Detalle'}/>
 					</TouchableOpacity>
 				</View>
 			</View>

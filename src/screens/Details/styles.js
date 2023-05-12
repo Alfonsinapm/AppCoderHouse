@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+const { width, height } = Dimensions.get('window');
 import colores from "../../constantes/colores";
 
 const styles = StyleSheet.create({
@@ -8,6 +9,7 @@ const styles = StyleSheet.create({
 		width: '90%',
 		padding: 5,
 		marginTop:35,
+		marginLeft:20,
 		borderRadius:10
 	  },
 	  title: {
@@ -18,20 +20,22 @@ const styles = StyleSheet.create({
 		paddingLeft:10
 	  },
 	  buttonContainer:{
-		flexDirection:'row',
+		flex: 1,
+    	alignItems: 'center',
+		justifyContent:'center',
 		width:'100%',
-		justifyContent:'space-evenly',
 		marginTop:20,
 		
 	},
 	botonVolver:{
-		width:100,
-		backgroundColor:colores.actionColor,
+		width:'40%',
+		minWidth:85,
+		maxWidth: width/2,
+		height:'30%',
+		marginTop:20,
+		backgroundColor:'#FFEAD2',
 		borderRadius:10,
-		color:colores.lightFont,
-		height:35,
-		justifyContent:'center',
-		alignItems:'center',
+		marginLeft:100,
 		fontFamily: 'Montserrat-Medium',
 	},
 	nombreProducto:{
@@ -41,7 +45,7 @@ const styles = StyleSheet.create({
 		fontSize:15
 	},
 	txtVolver:{
-		color:'#ACB1D6',
+		fontSize:18,
 		fontFamily: 'Montserrat-Medium',
 	}
 })
