@@ -1,42 +1,32 @@
 export const productos = [
 	{
 		id:'1',
-		categoria:'1',
-		nombre:'Baguette',
-		descripcion:'Clasico pan frances',
-		peso:'350g',
-		precio:'16'
+		"imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/M63H24W7JF0-L302-ALTGHOST?wid=1500&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
+		"nombre": "CHECK PRINT SHIRT",
+		"price": 110
 	},
 	{
 		id:'2',
-		categoria:'2',
-		nombre:'Pan chiabatta blanco',
-		descripcion:'Pan de alta hidratacion, miga alveolada y corteza crujiente',
-		peso:'800g',
-		precio:'30'
+		"imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/FLGLO4FAL12-BEIBR?wid=700&amp;fmt=jpeg&amp;qlt=80&amp;op_sharpen=0&amp;op_usm=1.0,1.0,5,0&amp;iccEmbed=0",
+		"nombre": "GLORIA HIGH LOGO SNEAKER",
+		"price": 91
 	},
 	{
 		id:'3',
-		categoria:'1',
-		nombre:'Pan de hamburguesa',
-		descripcion:'Textura suave, decorada con semillas de sesamo',
-		peso:'120g',
-		precio:'10'
+		"imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/HWVG6216060-TAN?wid=700&amp;fmt=jpeg&amp;qlt=80&amp;op_sharpen=0&amp;op_usm=1.0,1.0,5,0&amp;iccEmbed=0",
+		"nombre": "CATE RIGID BAG",
+		"price": 94.5
 	},
 	{
 		id:'4',
-		categoria:'3',
-		nombre:'Pan de molde integral de centeno',
-		descripcion:'Pedilo entero o cortado, con o sin semillas',
-		peso:'200g',
-		precio:'35'
+		"imgUrl": "http://guesseu.scene7.com/is/image/GuessEU/WC0001FMSWC-G5?wid=520&fmt=jpeg&qlt=80&op_sharpen=0&op_usm=1.0,1.0,5,0&iccEmbed=0",
+		"nombre": "GUESS CONNECT WATCH",
+		"price": 438.9
 	},
 	{
 		id:'5',
-		categoria:'2',
-		nombre:'Donna de chocolate',
-		descripcion:'Donna cubierta de chocolate, podes pedirla de chocolate blanco',
-		peso:'300g',
-		precio:'20'
+		"imgUrl": "https://guesseu.scene7.com/is/image/GuessEU/AW6308VIS03-SAP?wid=700&amp;fmt=jpeg&amp;qlt=80&amp;op_sharpen=0&amp;op_usm=1.0,1.0,5,0&amp;iccEmbed=0",
+		"nombre": "'70s RETRO GLAM KEFIAH",
+		"price": 20
 	}
 ]
