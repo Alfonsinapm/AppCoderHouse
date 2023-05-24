@@ -1,4 +1,4 @@
-import ShopNavigator from "./ShopNavigator";
+import ShopNavigator from "./shopNavigator";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CartNavigator from "./CartNavigator";
 import Ionicons from "@expo/vector-icons/Ionicons";
