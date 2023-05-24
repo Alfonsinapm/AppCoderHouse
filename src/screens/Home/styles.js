@@ -4,7 +4,7 @@ const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
 	container:{
-		flex:1,
+		height:'100%',
 		padding:5,
 		alignItems:'center',
 		paddingTop:20,
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 		flexDirection:'row',
 		width:'100%',
 		justifyContent:'space-evenly',
-		marginTop:20,
+		marginTop:10,
 		
 	},
 	botonBorrar:{
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 		width:'40%',
 		minWidth:100,
 		maxWidth: width/2,
-		height:'80%',
+		height:'50%',
 		backgroundColor:'#DBDFEA',
 		borderRadius:10,
 		color:'white',
@@ -71,8 +71,9 @@ const styles = StyleSheet.create({
 		alignItems:'center',
 		borderRadius:10,
 		backgroundColor:'#DBDFEA',
-		marginTop:30,
-		marginLeft:15
+		marginTop:10,
+		marginLeft:15,
+		height:100
 	},
 	Msg:{
 		fontWeight:'bold',

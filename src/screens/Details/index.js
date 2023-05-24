@@ -2,10 +2,12 @@ import { View, Text, TouchableOpacity, Button } from 'react-native'
 import React from 'react'
 import styles from './styles'
 
-const ProductDetails = ({ navigation }) => {
+const ProductDetails = ({ navigation, route }) => {
+	let bread = route.params.producto;
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Detalle deproducto</Text>
+			{/* <Text style={styles.title}>Detalle deproducto</Text> */}
+			<Text style={styles.title}>{bread.nombre}</Text>
 			<TouchableOpacity style={styles.botonVolver}>
 				<Button onPress={() => navigation.navigate('Home')} color={'black'} title= {'Volver'}></Button>
 			</TouchableOpacity>

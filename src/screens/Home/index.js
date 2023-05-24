@@ -3,15 +3,16 @@ import React, { useEffect } from 'react'
 import styles from './styles';
 import { useState, } from 'react';
 import AgregarProductos from '../../components/AgregarProductos/index';
+import { productos } from '../../data/productos';
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
 
-	const [textItem, setTextItem] = useState('');
-	const [list, setList] = useState([]);
+	//const [textItem, setTextItem] = useState('');
+	//const [list, setList] = useState([]);
 
-	const onHandleTextChange = (text) => {
-		setTextItem(text);
-	};
+	// const onHandleTextChange = (text) => {
+	// 	setTextItem(text);
+	// };
 
 	// const width = Dimensions.get('width');
 	// const height = Dimensions.get('height');
@@ -22,38 +23,49 @@ const Home = ({navigation}) => {
 	// 	l:1000
 	// };
 
-	const agregar = () => {
-	
-		if (textItem.length) {
-			let item = {
-				name: textItem,
-				id: Math.random().toString()
-			}
-			setList(prevstate => [...prevstate, item])
-			setTextItem('');
+	// useEffect(() => {
+	// 	setList(()=>{return productos})
+
+	//   },[]);
+
+	// const agregar = () => {
+
+	// 	if (textItem.length) {
+	// 		let item = {
+	// 			nombre: textItem,
+	// 			id: Math.random().toString()
+	// 		}
+	// 		setList(prevstate => [...prevstate, item])
+	// 		setTextItem('');
+	// 	}
+	// };
+
+	// const borrar = (item) => {
+	// 	let newList = list.filter(elem => elem.nombre != item.nombre);
+	// 	setList(newList);
+	// };
+
+	// const onClean = () => {
+	// 	setList([]);
+	// 	setTextItem('');
+	// };
+
+	const handleSelectedProduct = item => {
+			navigation.navigate('Detils', {
+				producto: item,
+				nombre: item.nombre
+			});
 		}
-	};
-
-	const borrar = (item) => {
-		let newList = list.filter(elem => elem.name != item.name);
-		setList(newList);
-	};
-
-	const onClean = () => {
-		setList([]);
-		setTextItem('');
-	};
 
 	const renderItem = ({ item }) => {
+		
 		return (
 			<View style={styles.containerCard}>
-				<Text style={styles.subtitle}>{item.name}</Text>
+				<Text style={styles.subtitle}>{item.nombre}</Text>
 				<View style={styles.buttonContainer}>
-					<TouchableOpacity style={styles.botonBorrar}>
-						<Text onPress={() => borrar(item)} color={'white'} style={styles.textoBorrar}>{'Borrar'}</Text>
-					</TouchableOpacity>
+					
 					<TouchableOpacity style={styles.botonDetalle}>
-						<Button onPress={() => navigation.navigate('Details')} color={'black'} title={'Detalle'}/>
+						<Button onPress={() => handleSelectedProduct(item)} color={'black'} title={'Detalle'} />
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -62,7 +74,7 @@ const Home = ({navigation}) => {
 
 	return (
 		<View style={styles.container}>
-			<View style={styles.Box}>
+			{/* <View style={styles.Box}>
 				<AgregarProductos
 					otherStyles={{ backgroundColor: '#F6F1F1' }}
 					onAdd={agregar}
@@ -70,11 +82,11 @@ const Home = ({navigation}) => {
 					value={textItem}
 					onClean={onClean}
 				/>
-			</View>
-			{list.length ?
+			</View> */}
+			{productos.length ?
 				<FlatList
 					style={styles.ScrollContainer}
-					data={list}
+					data={productos}
 					renderItem={renderItem}
 					keyExtractor={item => item.id}
 				/>
