@@ -5,38 +5,29 @@ import colores from "../../constantes/colores";
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colores.primary,
-		height: 170,
+		flex: 1,
+		flexDirection: "row",
+		maxHeight: '30%',
 		width: '90%',
 		padding: 5,
 		marginTop:35,
 		marginLeft:20,
-		borderRadius:10
+		marginBottom:10,
+		borderRadius:10,
+		
 	  },
 	  title: {
 		color: "white",
-		fontSize: 22,
+		fontSize: 18,
 		paddingTop:10,
 		paddingBottom:10,
-		paddingLeft:10
-	  },
-	  buttonContainer:{
-		flex: 1,
-    	alignItems: 'center',
-		justifyContent:'center',
-		width:'100%',
-		marginTop:20,
+		paddingLeft:10,
 		
-	},
-	botonVolver:{
-		width:'40%',
-		minWidth:85,
-		maxWidth: width/2,
-		height:'30%',
-		marginTop:20,
-		backgroundColor:'#FFEAD2',
-		borderRadius:10,
-		marginLeft:100,
-		fontFamily: 'Montserrat-Medium',
+	  },
+	  InfoContainer:{
+		flex: 1,
+		width:'100%',
+		height:100
 	},
 	nombreProducto:{
 		color:'#E4D0D0',
@@ -44,10 +35,18 @@ const styles = StyleSheet.create({
 		fontFamily:'Rubik-Regular',
 		fontSize:15
 	},
-	txtVolver:{
-		fontSize:18,
-		fontFamily: 'Montserrat-Medium',
-	}
+	imageContainer: {
+	height:120
+	},
+	image: {
+	  width: 100,
+	  height: 100,
+	  borderTopRightRadius: 10,
+	  borderTopLeftRadius: 10,
+	  borderBottomLeftRadius: 10,
+	  borderBottomRightRadius: 10,
+	  margin:10
+	},
 })
 
 export default styles;

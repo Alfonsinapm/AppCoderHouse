@@ -1,15 +1,19 @@
-import { View, Text, TouchableOpacity, Button } from 'react-native'
+import { View, Text, TouchableOpacity, Button, Image } from 'react-native'
 import React from 'react'
 import styles from './styles'
 
-const ProductDetails = ({ navigation }) => {
+const ProductDetails = ({ navigation, route }) => {
+	let producto = route.params.producto;
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Detalle deproducto</Text>
-			<TouchableOpacity style={styles.botonVolver}>
-				<Button onPress={() => navigation.navigate('Home')} color={'black'} title= {'Volver'}></Button>
-			</TouchableOpacity>
-			
+			<View style={styles.imageContainer}>
+				<Image style={styles.image} source={{ uri: producto.imgUrl }} />
+			</View>
+			<View style={styles.InfoContainer}>
+				<Text style={styles.nombreProducto}>{producto.nombre}</Text>
+				<Text style={styles.title}>${producto.price}</Text>
+			</View>
+
 		</View>
 	)
 }
