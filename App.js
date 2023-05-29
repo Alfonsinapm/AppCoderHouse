@@ -1,7 +1,9 @@
 import { StyleSheet } from 'react-native';
-import {useFonts} from 'expo-font';
+import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import BottomTabNavigator from './src/navigation/BottomTabNavigator';
+import { Provider } from 'react-redux';
+import store from './src/store';
 
 export default function App() {
 
@@ -10,15 +12,16 @@ export default function App() {
     'Rubik-Regular': require('./src/assets/fonts/Rubik-Regular.ttf')
   })
 
-  if(!loaded){
+  if (!loaded) {
     return null;
   }
 
   return (
-    <NavigationContainer>
-      <BottomTabNavigator />
-    </NavigationContainer>
-    
+    <Provider store={store}>
+      <NavigationContainer>
+        <BottomTabNavigator />
+      </NavigationContainer>
+    </Provider>
   );
 }
 
@@ -27,9 +30,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#fff',
-    
+
   },
-  headerTitle:{
+  headerTitle: {
     fontFamily: 'Montserrat-Medium',
   }
 });

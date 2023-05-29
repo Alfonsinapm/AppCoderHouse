@@ -36,9 +36,7 @@ const ShopNavigator = () => {
 		<Stack.Screen 
 			name='Detils' 
 			component={Details}
-			options={({ route }) => ({
-				title: route.params.producto.nombre,
-			  })}
+			
 		/>
 	  </Stack.Navigator>
 	
