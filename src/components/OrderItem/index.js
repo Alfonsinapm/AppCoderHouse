@@ -10,11 +10,11 @@ const OrderItem = ({item, onDelete}) => {
 		return newDate.toLocaleDateString();
 	  };
 
-
+console.log(item)
   return (
 	<View style={styles.order}>
 		<View>
-			<Text styles={styles.date}>{formatDay(item.fecha)}</Text>
+			<Text styles={styles.date}>{formatDay(item.date)}</Text>
 			<Text styles={styles.total}>{item.total}</Text>
 		</View>
 	  <View>
