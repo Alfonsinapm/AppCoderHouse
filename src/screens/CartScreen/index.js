@@ -4,20 +4,23 @@ import { useDispatch } from 'react-redux';
 import ItemCarrito from '../../components/ItemCarrito';
 import { useSelector } from 'react-redux';
 import styles from './styles'
-import { remoteCartProduct } from '../../store/actions/cart.action';
+import { remoteCartProduct, confirmCart } from '../../store/actions/cart.action';
 
 const CartScreen = () => {
 
 	const dispatch = useDispatch();
+	const _cartProductos = useSelector(state => state.cart.productos)
+	const total= useSelector(state=>state.cart.total)	
 
 	const handleDeleeItem = (item)=>{
 		dispatch(remoteCartProduct(item));
 	}
+	const handleConfirmarPedido = ()=>{
+		dispatch(confirmCart(_cartProductos, total));
+	}
 	const renderCartItem = ({item})=>(
 		<ItemCarrito item={item} onDelete={handleDeleeItem}/>
 	);
-
-	const _cartProductos = useSelector(state => state.cart.productos)
 
   return (
 	<View style={styles.container}>
@@ -32,9 +35,11 @@ const CartScreen = () => {
 			}</View>
 		<View style={styles.footer}>
 			<View style={styles.confirm}>
-				
+				<TouchableOpacity onPress={()=>handleConfirmarPedido()}>
+					<Text>confirmar</Text>
+				</TouchableOpacity>
 				<View>
-					<Text style={styles.priceText}>Total: $100</Text>
+					<Text style={styles.priceText}>Total: ${total}</Text>
 				</View>
 			</View>
 		</View>
