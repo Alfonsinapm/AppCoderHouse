@@ -4,6 +4,8 @@ import CartNavigator from "./CartNavigator";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { View } from "react-native";
 import OrdersNavigator from "./OrdersNavigator";
+import AgregarProductosNavigator from "./AgregarProductosNavigator";
+
 const BottomTabs = createBottomTabNavigator();
 
 export default BottomTabNavigator = () => {
@@ -43,6 +45,17 @@ export default BottomTabNavigator = () => {
 					tabBarIcon: () => (
 						<View>
 							<Ionicons name={'list'} size={30} color='black' />
+						</View>
+					)
+				}}
+			/>
+			<BottomTabs.Screen
+				name={'Agregar'}
+				component={AgregarProductosNavigator}
+				options={{
+					tabBarIcon: () => (
+						<View>
+							<Ionicons name={'add'} size={30} color='black' />
 						</View>
 					)
 				}}

@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux'
 import { cartProduct } from '../../store/actions/cart.action'
 import { useDispatch } from 'react-redux';
 
-const ProductDetails = ({ navigation }) => {
+const ProductDetails = ({ navigation, route }) => {
 
-	const producto = useSelector(state => state.productos.selected);
+	let producto = route.params.producto;
 	const dispatch = useDispatch();
 
 	const handleBuyProduct = item => {
@@ -22,7 +22,7 @@ const ProductDetails = ({ navigation }) => {
 			</View>
 			<View style={styles.InfoContainer}>
 				<Text style={styles.nombreProducto}>{producto.nombre}</Text>
-				<Text style={styles.title}>${producto.price}</Text>
+				<Text style={styles.title}>${producto.precio}</Text>
 				<TouchableOpacity onPress={() => handleBuyProduct(producto.id)} style={styles.btnComprar}>
 					<Text style={styles.textoBtn}>comprar</Text>
 				</TouchableOpacity>
