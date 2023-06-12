@@ -7,7 +7,10 @@ import { useSelector } from 'react-redux'
 
 const index = () => {
 
-	const userId = useSelector(state=>state.auth.userId)
+	// const userId = useSelector(state=>state.auth.userId)
+	const userId = {
+		userId:'kjndfjdKJSHFBDFNVDhjdfnkvdkf'
+	}
 
   return (
 	<NavigationContainer>

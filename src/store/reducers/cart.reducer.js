@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const sumTotal = list => {
-	//console.log(list)
+	
 	if(list.length>0){
 		return list
 	  .map(item => item.cantidad * item.price)
@@ -18,7 +18,6 @@ const sumTotal = list => {
 const CartReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case cart_product:
-
 			let prod = productos.find(product => product.id === action.productId);
 			let prodsAdd = [...state.productos].map(item => {
 				if (item.id === prod.id) {

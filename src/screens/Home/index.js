@@ -1,30 +1,37 @@
-import { TouchableOpacity, Text, View, FlatList, Dimensions, Button } from 'react-native';
+import { TouchableOpacity, Text, View, FlatList, Dimensions, Button, Image } from 'react-native';
 import React, { useEffect } from 'react'
 import styles from './styles';
 import { selectedProduct } from '../../store/actions/producto.action';
-
+import { getProductosInicio } from '../../store/actions/productosInicio.action';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Home = ({ navigation }) => {
 
-	const _productos = useSelector(state => state.productos.productos)
+	// const _productos = useSelector(state => state.productos.productos)
+	const _productos = useSelector(state => state?.productosInicio?.list)
 	const dispatch = useDispatch();
 
 	const handleSelectedProduct = item => {
 		dispatch(selectedProduct(item.id));
 		navigation.navigate('Detils', {
-			nombre: item.nombre
+			producto: item,
 		});
 	}
+
+	
+	useEffect(() => {
+		dispatch(getProductosInicio())
+	}, [])
 
 	const renderItem = ({ item }) => {
 		return (
 			<View style={styles.containerCard}>
-				<Text style={styles.subtitle}>{item.nombre}</Text>
+				<Image style={styles.image} source={{uri:item.imgUrl}}/>
+				<Text style={styles.subtitle}>{item?.nombre}</Text>
+				<Text style={styles.subtitle}>${item?.precio}</Text>
 				<View style={styles.buttonContainer}>
-
-					<TouchableOpacity style={styles.botonDetalle}>
-						<Button onPress={() => handleSelectedProduct(item)} color={'black'} title={'Detalle'} />
+					<TouchableOpacity style={styles.botonDetalle}  onPress={() => handleSelectedProduct(item)}>
+						<Text color={'white'}>{'Ver'}</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
