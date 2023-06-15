@@ -25,7 +25,7 @@ const CartScreen = () => {
   return (
 	<View style={styles.container}>
 		<View style={styles.list}>
-			{_cartProductos.length ?
+			{_cartProductos?.length ?
 			<FlatList
 				data={_cartProductos}
 				keyExtractor={item=>item?.id}

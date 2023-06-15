@@ -50,7 +50,7 @@ export default BottomTabNavigator = () => {
 				}}
 			/>
 			<BottomTabs.Screen
-				name={'Agregar'}
+				name={'Informacion de usuario'}
 				component={AgregarProductosNavigator}
 				options={{
 					tabBarIcon: () => (
