@@ -9,7 +9,7 @@ const AgregarProductosNavigator = () => {
 			headerShadowVisible: false, 
 			
 		}}>
-			<Stack.Screen name='Agregar productos' component={AgregarProductosScreen} />
+			<Stack.Screen name='Settings' component={AgregarProductosScreen} />
 		</Stack.Navigator>
 	)
 }

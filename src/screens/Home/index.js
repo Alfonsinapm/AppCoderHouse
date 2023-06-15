@@ -2,13 +2,13 @@ import { TouchableOpacity, Text, View, FlatList, Dimensions, Button, Image } fro
 import React, { useEffect } from 'react'
 import styles from './styles';
 import { selectedProduct } from '../../store/actions/producto.action';
-import { getProductosInicio } from '../../store/actions/productosInicio.action';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 const Home = ({ navigation }) => {
 
-	// const _productos = useSelector(state => state.productos.productos)
-	const _productos = useSelector(state => state?.productosInicio?.list)
+	 const _productos = useSelector(state => state.productos.productos)
+	
 	const dispatch = useDispatch();
 
 	const handleSelectedProduct = item => {
@@ -17,13 +17,10 @@ const Home = ({ navigation }) => {
 			producto: item,
 		});
 	}
-
-	
-	useEffect(() => {
-		dispatch(getProductosInicio())
-	}, [])
+	const foto = useSelector(state => state?.image?.image);
 
 	const renderItem = ({ item }) => {
+		
 		return (
 			<View style={styles.containerCard}>
 				<Image style={styles.image} source={{uri:item.imgUrl}}/>

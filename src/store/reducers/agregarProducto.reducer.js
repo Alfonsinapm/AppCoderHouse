@@ -1,13 +1,14 @@
-import { agregarProducto } from "../actions/agregarProducto.action"; 
+import { agregarFoto } from "../actions/agregarProducto.action"; 
 
 const initial_state = {
-	list: []
+	image: null
 }
 
 const AgregarProductoReducer = (state = initial_state, action) => {
+
 	switch (action.type) {
-		case agregarProducto:
-			return { ...state, list: action.payload }
+		case agregarFoto:
+			return { ...state, image: action }
 		default:
 			return state;
 	}

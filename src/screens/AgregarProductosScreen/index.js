@@ -1,86 +1,66 @@
-import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native'
+import { Text, View, TouchableOpacity, Image } from 'react-native'
 import { useState, useCallback, useEffect } from 'react'
 import AgregarProductos from '../../components/AgregarProductos'
-import { getProductosInicio } from '../../store/actions/productosInicio.action'
-import { agregarProducto } from '../../store/actions/agregarProducto.action'
-import styles from './styles'
 import { useDispatch, useSelector } from 'react-redux'
-import * as ImagePicker from 'expo-image-picker'
+import { agregarFoto } from '../../store/actions/agregarProducto.action'
+import styles from './styles'
 
-
-const AgregarProductosScreen = ({navigation}) => {
+const AgregarProductosScreen = ({ navigation }) => {
 
 	const [data, setData] = useState({})
-	
-	const [image, setImage] = useState(null);
+	const [show, setShow] = useState(false)
+	const [image, setImage] = useState();
 
-	const _productos = useSelector(state => state?.productosInicio?.list)
-	
-	const dispatch = useDispatch()
-
-	const onClean = () => {
-		console.log('first')
-	}
-
-	const onAdd = () => {
-			let prod = {
-				nombre: data.nombre,
-				id: Math.random().toString(),
-				precio: data.precio,
-				cantidad: 0,
-			};
-			dispatch(agregarProducto(prod, image));
-			navigation.navigate('Home')
-	}
+	const dispatch = useDispatch();
 
 	const onHandleTextChange = useCallback((field, value) => {
 		setData(d => ({ ...d, [field]: value }));
 	}, [setData]);
 
-
-
-	useEffect(() => {
-		dispatch(getProductosInicio())
-	}, [])
-	useEffect(() => {
-		dispatch(getProductosInicio())
-	}, [onAdd])
-
-	const renderItem = ({ item }) => { 
-		
-		return (
-			<View style={styles.containerCard}>
-				<Image style={styles.image} source={{uri:item.imgUrl}}/>
-				<Text style={styles.subtitle}>{item?.nombre}</Text>
-				<Text style={styles.subtitle}>${item?.precio}</Text>
-				<View style={styles.buttonContainer}>
-					<TouchableOpacity style={styles.botonBorrar}>
-						<Text color={'white'}>{'Borrar'}</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
-		)
+	const handleChangeImg = () => {
+		setShow(!show)
 	}
+
+	const onAdd = () => {
+		dispatch(agregarFoto(image));
+		setShow(!show)
+	}
+
+	
+	useEffect(() => {
+		if (foto !== undefined && foto !== null) {
+
+			setImage(foto)
+		}
+
+	}, [onAdd, foto])
+
 
 	return (
 		<View style={styles.container}>
-			<AgregarProductos
-				onAdd={onAdd}
-				onHandleChangeText={onHandleTextChange}
-				value={data}
-				onClean={onClean}
-				onImage={setImage}
-			/>
-
-			{/* {_productos?.length ?
-				<FlatList
-					data={_productos || []}
-					renderItem={renderItem}
-					keyExtractor={item => item.id}
+			{!show ?
+				<AgregarProductos
+					onAdd={onAdd}
+					onHandleChangeText={onHandleTextChange}
+					value={data}
+					onImage={setImage}
 				/>
 				:
-				<Text>{'No hay elementos'}</Text>
-			} */}
+				<View style={styles.containerCard}>
+					{!image ? (
+						<Text style={{ color: 'white', padding: 10 }}>No hay imagen todavia</Text>
+					) : (
+						<Image source={{ uri: image }} style={styles.image} />
+					)}
+					<Text style={styles.subtitle}>{data?.nombre}</Text>
+					<Text style={styles.subtitle}>{data?.apellido}</Text>
+					<View style={styles.buttonContainer}>
+						<TouchableOpacity style={styles.botonDetalle} onPress={() => handleChangeImg()}>
+							<Text color={'white'}>{'Cambiar'}</Text>
+						</TouchableOpacity>
+					</View>
+				</View>
+			}
 		</View>
 	)
 }

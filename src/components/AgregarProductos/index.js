@@ -4,7 +4,7 @@ import { Input } from '../';
 import styles from './styles';
 import * as ImagePicker from 'expo-image-picker'
 
-const AgregarProductos = ({ onAdd, onHandleChangeText, value, onClean, onImage }) => {
+const AgregarProductos = ({ onAdd, onHandleChangeText, value, onImage }) => {
 
 	const [isPortrait, setIsPortrait] = useState(true);
 	const [pickedUri, setPickedUri] = useState();
@@ -32,22 +32,22 @@ const AgregarProductos = ({ onAdd, onHandleChangeText, value, onClean, onImage }
 	}
 
 	const handleChangeImage = async () => {
-
 		const hasPermission = await verifyPermission()
 		if (!hasPermission) return
-
 		const image = await ImagePicker.launchCameraAsync({
 			allowsEditing: true,
 			aspect: [19, 9],
 			quality: 0.8
 		})
+		
 		setPickedUri(image?.assets[0].uri)
 		onImage(image?.assets[0].uri)
 	}
+
 	return (
 
 		<View style={styles.container}>
-			<Text style={styles.subtitle}>{'Nombre producto'}</Text>
+			<Text style={styles.subtitle}>{'Informacion personal'}</Text>
 			<View style={styles.containerFoto}>
 				<View style={styles.preview}>
 					{!pickedUri ? (
@@ -65,9 +65,9 @@ const AgregarProductos = ({ onAdd, onHandleChangeText, value, onClean, onImage }
 					value={value?.nombre || ''}
 				/>
 				<Input
-					onChangeText={(p) => onHandleChangeText('precio', p)}
-					placeholder='Precio'
-					value={value?.precio || ''}
+					onChangeText={(p) => onHandleChangeText('apellido', p)}
+					placeholder='apellido'
+					value={value?.apellido || ''}
 				/>
 				<View style={styles.buttonContainer}>
 					<TouchableOpacity style={styles.botonAgregar}>

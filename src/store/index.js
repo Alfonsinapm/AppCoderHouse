@@ -4,7 +4,6 @@ import CartReducer from './reducers/cart.reducer';
 import thunk from 'redux-thunk';
 import OrdersReducer from './reducers/orders.reducer';
 import AuthReducer from './reducers/auth.reducer';
-import ProductosInicioReducer from './reducers/productos_inicio.reducer';
 import AgregarProductoReducer from './reducers/agregarProducto.reducer';
 
 const RootReducer = combineReducers({
@@ -12,7 +11,7 @@ const RootReducer = combineReducers({
 	cart: CartReducer,
 	orders: OrdersReducer,
 	auth: AuthReducer,
-	productosInicio: ProductosInicioReducer,
+	
 	agregarProducto: AgregarProductoReducer
 })
 

@@ -11,9 +11,8 @@ const ProductDetails = ({ navigation, route }) => {
 	const dispatch = useDispatch();
 
 	const handleBuyProduct = item => {
-
 		dispatch(cartProduct(item));
-		navigation.navigate('Carrito');
+		//navigation.navigate('Carrito');
 	}
 	return (
 		<View style={styles.container}>

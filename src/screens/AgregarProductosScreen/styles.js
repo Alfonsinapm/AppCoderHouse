@@ -58,6 +58,15 @@ const styles = StyleSheet.create({
 		width:50,
 		height:50,
 
+	}, containerCard:{
+		width:300,
+		maxWidth:'80%',
+		padding:20,
+		alignItems:'center',
+		borderRadius:10,
+		backgroundColor:'#DBDFEA',
+		marginTop:30
+		
 	}
 
 })
